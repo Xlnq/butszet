@@ -1,0 +1,28 @@
+﻿<Window x:Class="butszet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Budget Tracker" Height="400" Width="600"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListView x:Name="BudgetItems" Grid.Row="0" ItemsSource="{Binding budgetItemsView}" SelectedItem="{Binding SelectedBudgetItem}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150" />
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}" Width="150" />
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}" Width="100" />
+                    <GridViewColumn Header="Is Income?" DisplayMemberBinding="{Binding IsIncome}" Width="100" />
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="150" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <Button Content="Add" Click="btnAdd_Click" Margin="5"/>
+            <Button Content="Edit" Click="btnEdit_Click" Margin="5"/>
+            <Button Content="Delete" Click="btnDelete_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
